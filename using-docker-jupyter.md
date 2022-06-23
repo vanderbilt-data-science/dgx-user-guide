@@ -28,7 +28,7 @@ There are 2 steps involved in creating a fully functional jupyter session. First
  
 * Now navigate to the URL provided. Change "hostname" to "localhost" and port "8888" to port "xxxx" in the URL. 
 
-* Create any new files in the folder called <testfolder> within your jupyter session. Any files created in subdirectories above this will not save anywhere. 
+* Create any new files in the folder called 'testfolder' within your jupyter session. Any files created in subdirectories above this will not save anywhere. 
  
 **For other users wanting to use the same jupyter session (USER 2):**
  
