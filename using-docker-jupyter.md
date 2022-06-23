@@ -12,7 +12,7 @@ There are 2 steps involved in creating a fully functional jupyter session. First
  
 * Log in: `ssh -L xxxx:localhost:xxxx username@XX.XX.XX.XX`
 
-* Create a folder where you would like to store your work within your home directory: `mkdir testfolder`
+* Create a folder where you would like to store your work within your home directory: `mkdir testfolder`. This "testfolder" is globally unique if being used to create a docker volume. Use `docker volume ls` to see what volume names have already been created. 
 
 **NOTE**: Docker volume names are system-wide unique. Use `docker volume ls` to check if the name you want to use is already taken
 
