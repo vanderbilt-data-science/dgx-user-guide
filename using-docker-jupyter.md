@@ -22,7 +22,7 @@ There are 2 steps involved in creating a fully functional jupyter session. First
 
 * If you plan on using a repository, clone it within the new folder you created now. 
 
-* Launch Docker: `docker run --gpus all --net=host -it -v testfolder:/workspace/testfolder nvcr.io/nvidia/pytorch:21.10-py3` (or any other container image that supports Jupyter notebooks)
+* Launch Docker: `docker run --gpus all --net=host -it -v testfolder:/workspace/testfolder nvcr.io/nvidia/pytorch:22.05-py3` (or any other container image that supports Jupyter notebooks)
  
 * Launch Jupyter Lab/Notebook: `jupyter-lab --port xxxx`
  
