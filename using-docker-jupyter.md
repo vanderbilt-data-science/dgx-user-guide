@@ -16,13 +16,13 @@ There are 2 steps involved in creating a fully functional jupyter session. First
 
 **NOTE**: Docker volume names are system-wide unique. Use `docker volume ls` to check if the name you want to use is already taken
 
-* Create the docker volume: `docker volume create --driver local --opt type=none --opt device=/home/username/testfolder --opt o=bind testfolder`
+* Create the docker volume: `docker volume create --driver local --opt type=none --opt device=/raid/username/testfolder --opt o=bind testfolder`
 
 * Now use `docker volume ls` to check if the volume was successfully created. **Deleting a docker volume is not easy - ensure you are ok with the name of the volume you created**
 
 * If you plan on using a repository, clone it within the new folder you created now. 
 
-* Launch Docker: `docker run --gpus all --net=host -it -v testfolder:/workspace/testfolder nvcr.io/nvidia/pytorch:22.05-py3` (or any other container image that supports Jupyter notebooks)
+* Launch Docker: `docker run --gpus all --net=host -it -v testfolder:/workspace/testfolder nvcr.io/nvidia/pytorch:22.06-py3` (or any other container image that supports Jupyter notebooks)
  
 * Launch Jupyter Lab/Notebook: `jupyter-lab --port xxxx`
  
