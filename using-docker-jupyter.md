@@ -44,4 +44,25 @@ There are 2 steps involved in creating a fully functional jupyter session. First
  
 You should now be able to use the same jupyter session and docker container. 
 
+## Modifying and saving a PyTorch docker container to include new libraries
+1. Launch the PyTorch docker container using the steps above.
+
+2. Once in the docker container do a `pip install` of the missing libraries.
+
+3. Make a second SSH connection into the DGX.
+
+4. From the second connection, check running docker images by running `docker ps`. Note the CONTAINER_ID of the PyTorch container running in the other SSH connection.
+
+5. Run the following docker command to create a new image:<br>
+Generic Example:<br>
+docker commit CONTAINER_ID NEW_IMAGE_NAME<br><br>
+Real-world Example:<br>
+docker commit d4576eda8284 na_docker
+
+6. To run the newly created container run:<br>
+Generic Example:<br>
+docker run --gpus all --net=host -it -v testfolder:/workspace/testfolder na_docker<br><br>
+Real-world Example:<br>
+docker run --gpus all --net=host -it -v n_arc:/workspace/n_arc na_docker
+
 Please reach out to Umang Chaudhry at umang.chaudhry@vanderbilt.edu with any questions.
