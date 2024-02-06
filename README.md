@@ -19,7 +19,7 @@ Before continuing with your setup, you'll need to request to have a DGX account 
 
 6. Log in to the VPN
 
-7. Log in to the DGX (instructions available on the using-docker-jupyter.md file)
+7. Log in to the DGX (instructions available on the [Running Jupyter Notebooks on the DGX](using-docker-jupyter.md) file
 
 8. Set up and run a Docker container on the DGX
 
