@@ -9,7 +9,7 @@ The Data Science Institute has two DGX A100's. These systems are not part of the
 
 1. Request an account be created for you on the DSI DGX's. 
 
-Before continuing with your setup, you'll need to request to have a DGX account set up for you by completing a [DGX User Setup Form (Compute Grant)](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link)
+Before continuing with your setup, you'll need to request to have a DGX account set up for you by completing a [DGX User Account Registration Form (Compute Grant)](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link)
 
 2. Get your assigned Port number for your own personal use. 
 
