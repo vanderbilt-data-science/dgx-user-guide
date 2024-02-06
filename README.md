@@ -11,7 +11,7 @@ The Data Science Institute has two DGX A100's. These systems are not part of the
 
 Before continuing with your setup, you'll need to request to have a DGX account set up for you by completing a [DGX User Account Registration Form (Compute Grant)](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link)
 
-2. Once access is provided, get your assigned Port number and GPU information from the [DGX Assignments] (https://docs.google.com/spreadsheets/d/1BQjkEN3PJDlljziHQeCBBTwa9unaWivCDnwpmLqmxUQ/edit#gid=0) speadsheet
+2. Once access is provided, get your assigned Port number and GPU information from the [DGX Assignments](https://docs.google.com/spreadsheets/d/1BQjkEN3PJDlljziHQeCBBTwa9unaWivCDnwpmLqmxUQ/edit#gid=0) speadsheet
 
 4. Set up the Vanderbilt VPN on your machine (if not connected to VUnet)
 
