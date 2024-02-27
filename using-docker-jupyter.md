@@ -10,7 +10,7 @@ There are 2 steps involved in creating a fully functional jupyter session. First
 
 **USER 1** 
  
-* Log in: `ssh -L xxxx:localhost:xxxx username@XX.XX.XX.XX`
+* Log in: `ssh -L xxxx:localhost:xxxx username@XX.XX.XX.XX` "xxxx" is your port number. XX.XX.XX.XX is the IP Address of the machine you have been assigned to. This information can be found on the [DGX Assignments](https://docs.google.com/spreadsheets/d/1BQjkEN3PJDlljziHQeCBBTwa9unaWivCDnwpmLqmxUQ/edit?usp=sharing) spreadsheet
 * Change directory to your directory in /raid: `cd /raid/username`
 * Create a folder where you would like to store your work within your raid home directory: `mkdir <testfolder>`. ```testfolder``` is a placeholder. This "testfolder" must be globally unique if being used to create a docker volume. Use `docker volume ls` to see what volume names have already been created. 
 
