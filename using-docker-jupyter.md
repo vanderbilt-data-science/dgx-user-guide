@@ -8,7 +8,7 @@ If your user account has been given docker permissions, you will be able to use 
 
 There are 2 steps involved in creating a fully functional jupyter session. First, you must create a docker volume to save your work to. You then need to use the appropriate port forwarding in order to connect to the jupyter session successfully.
 
-**USER 1** 
+**USER 1**
  
 * Log in: `ssh -L xxxx:localhost:xxxx username@XX.XX.XX.XX` "xxxx" is your port number. XX.XX.XX.XX is the IP Address of the machine you have been assigned to. This information can be found on the [DGX Assignments](https://docs.google.com/spreadsheets/d/1BQjkEN3PJDlljziHQeCBBTwa9unaWivCDnwpmLqmxUQ/edit?usp=sharing) spreadsheet
 * Change directory to your directory in /raid: `cd /raid/username`
@@ -22,7 +22,9 @@ There are 2 steps involved in creating a fully functional jupyter session. First
 
 * If you plan on using a repository, clone it within the new folder you created now. 
 
-* Launch Docker: `docker run --gpus all --net=host -it -v <testfolder>:/workspace/<testfolder> nvcr.io/nvidia/pytorch:22.12-py3` (or any other container image that supports Jupyter notebooks)
+* Launch Docker: `docker run --gpus all --net=host -it -v <testfolder>:/workspace/<testfolder> nvcr.io/nvidia/pytorch:23.12-py3` (or any other container image that supports Jupyter notebooks)
+
+* **NOTE:** The ```nvcr.io/nvidia/pytorch:23.12-py3``` is the latest pre-built docker container provided by Nvidia that is optimized to run on DGX A100 systems. It contains many key libraries often used with PyTorch, and also contains libaries that allow for multi-GPU workloads using NCCL. If needed, you are able to modify this container to include libraries not already included. Please see instructions below. 
  
 * Launch Jupyter Lab/Notebook: `jupyter-lab --port xxxx`
  
@@ -47,7 +49,7 @@ You should now be able to use the same jupyter session and docker container.
 ## Modifying and saving a PyTorch docker container to include new libraries
 1. Launch the PyTorch docker container using the steps above.
 
-2. Once in the docker container do a `pip install` of the missing libraries.
+2. Once in the docker container perform a `pip install` of the missing libraries.
 
 3. Make a second SSH connection into the DGX.
 
