@@ -2,7 +2,7 @@
 
 A guide to all things DGX for authorized users.
 
-The Data Science Institute has two DGX A100's. These systems are not part of the ACCRE share, and user access to them is granted to those who are part of DSI projects, or those who have been awarded a [DSI Compute Grant for DGX](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link). 
+The Data Science Institute has four DGX A100's. These systems are not part of the ACCRE share, and user access to them is granted to those who are part of DSI projects, or those who have been awarded a [DSI Compute Grant for DGX](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link). 
 
 
 ### Steps
