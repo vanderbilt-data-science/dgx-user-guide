@@ -4,7 +4,7 @@ If your user account has been given docker permissions, you will be able to use 
 
 ## Jupyter Notebooks on the DGX A100
 
-**Pre-requisite:** This guide assumes you have permission to use docker with your DGX account. If you are unable to access docker, please reach out to the DSI Data Science Team for support. 
+**Pre-requisite:** This guide assumes you have permission to use docker with your DGX account. If you are unable to access docker, please reach out to the DSI Data Science Team for support. If you do not have access to docker, you will see an error like the following: ```permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/volumes/create": dial unix /var/run/docker.sock: connect: permission denied```
 
 There are 2 steps involved in creating a fully functional jupyter session. First, you must create a docker volume to save your work to. You then need to use the appropriate port forwarding in order to connect to the jupyter session successfully.
 
@@ -12,17 +12,17 @@ There are 2 steps involved in creating a fully functional jupyter session. First
  
 * Log in: `ssh -L xxxx:localhost:xxxx username@XX.XX.XX.XX`
 * Change directory to your directory in /raid: `cd /raid/username`
-* Create a folder where you would like to store your work within your raid home directory: `mkdir testfolder`. This "testfolder" is globally unique if being used to create a docker volume. Use `docker volume ls` to see what volume names have already been created. 
+* Create a folder where you would like to store your work within your raid home directory: `mkdir <testfolder>`. ```testfolder``` is a placeholder. This "testfolder" must be globally unique if being used to create a docker volume. Use `docker volume ls` to see what volume names have already been created. 
 
 **NOTE**: Docker volume names are system-wide unique. Use `docker volume ls` to check if the name you want to use is already taken
 
-* Create the docker volume: `docker volume create --driver local --opt type=none --opt device=/raid/username/testfolder --opt o=bind testfolder`
+* Create the docker volume: `docker volume create --driver local --opt type=none --opt device=/raid/username/<testfolder> --opt o=bind <testfolder>`
 
 * Now use `docker volume ls` to check if the volume was successfully created. **Deleting a docker volume is not easy - ensure you are ok with the name of the volume you created**
 
 * If you plan on using a repository, clone it within the new folder you created now. 
 
-* Launch Docker: `docker run --gpus all --net=host -it -v testfolder:/workspace/testfolder nvcr.io/nvidia/pytorch:22.12-py3` (or any other container image that supports Jupyter notebooks)
+* Launch Docker: `docker run --gpus all --net=host -it -v <testfolder>:/workspace/<testfolder> nvcr.io/nvidia/pytorch:22.12-py3` (or any other container image that supports Jupyter notebooks)
  
 * Launch Jupyter Lab/Notebook: `jupyter-lab --port xxxx`
  
