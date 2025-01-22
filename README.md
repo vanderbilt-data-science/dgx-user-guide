@@ -99,7 +99,7 @@ SLURM is the ideal approach when working on high compute jobs like training of L
 3. Provide your VUnetID password
 4. You now have shell access to the ACCRE file system. ```ls``` will show you that you're currently in your ACCRE home directory. This is currently a CPU-only gateway.
 5. Have your python script ready in your ACCRE home directory. You may upload this using the interactive portal at http://viz.accre.vu
-6. Create your SLURM script. This instructs the scheduler how to run the Python script and what to do with the results. Below is a sample SLURM script:
+6. Create your SLURM script. This instructs the scheduler how to run the Python script and what to do with the results. Below is a sample SLURM script (filename.slurm):
 
 ```
 #!/bin/bash
@@ -119,6 +119,8 @@ nvidia-smi
 # Run your Python script
 python your_script.py
 ```
+7. Submit your batch job using ```sbatch filename.slurm```. You will now see the following: ```Submitted batch job (job id)```. You may also use ```squeue --job (job id)``` to check the status of your job. 
+
 SLURM allows you to specify many parameters related to your job. For more specifics, please see ACCRE's [Wiki](https://help.accre.vanderbilt.edu/index.php?title=Overview). We also highly recommend you complete the [ACCRE SLURM Training](https://www.vanderbilt.edu/accre/required-training/). Their training walks new users through the ACCRE system, UNIX as well as SLURM. 
 
 Please reach out to [Umang Chaudhry](mailto:umang.chaudhry@vanderbilt.edu) with any questions either over email or the Vanderbilt Data Science Slack. 
