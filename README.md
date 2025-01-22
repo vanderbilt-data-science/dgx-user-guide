@@ -76,7 +76,7 @@ ACCRE GPU Desktop provides you with a virtual desktop and an interactive way to 
 salloc is essentially the same login approach as the ACCRE GPU Desktop, but through a shell terminal instead of an interactive desktop. This is the best approach when it comes to running custom applications or dashboards on the DGXs. We recommend that you be very comfortable working in a linux shell environment before using this approach. 
 
 1. Open a new terminal/shell
-2. Type in the following ```ssh <VUnetID>@login.accre.vu
+2. Type in the following ```ssh <VUnetID>@login.accre.vu``` 
 3. Provide your VUnetID password
 4. You now have shell access to the ACCRE file system. ```ls``` will show you that you're currently in your ACCRE home directory. This is currently a CPU-only gateway.
 5. Use the ```salloc``` command to request a direct shell into the DGX: ```salloc --time=1:00:00 --partition=interactive --account=p_dsi_dgx --gres=gpu:nvidia_a100-sxm4-40gb:1```
