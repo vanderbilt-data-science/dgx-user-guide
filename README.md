@@ -69,9 +69,10 @@ ACCRE GPU Desktop offers a virtual desktop environment for interactive GPU workf
 1. Visit the ACCRE Visualization Portal: [http://viz.accre.vu](http://viz.accre.vu).
 2. Select **Interactive Apps**.
 3. Choose **ACCRE GPU Desktop**.
-4. Specify the session duration, GPU resources, and architecture (DGX-A100-40GB or DGX-A100-80GB).
-5. Optionally, provide a custom screen resolution.
-6. Launch the session. Your session will queue and start based on availability.
+4. Provide your GPU-enabled SLURM account (`p_dsi_dgx`). Access is granted through the [Compute Grant](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link) or via DSI projects.
+5. Specify the session duration, GPU resources, and architecture (DGX-A100-40GB or DGX-A100-80GB).
+6. Optionally, provide a custom screen resolution.
+7. Launch the session. Your session will queue and start based on availability.
 
 <img width="1728" alt="image" src="https://github.com/user-attachments/assets/3aac3a59-99c0-45d6-9970-b96fe89ee7c1" />
 
