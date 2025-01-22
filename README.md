@@ -83,6 +83,42 @@ salloc is essentially the same login approach as the ACCRE GPU Desktop, but thro
   - Here, we ask for a shell into the DGX with 1 40GB A100 GPU for 1 hour
   - Note the partition and account. These must be provided every time
   - To request the 80GB A100 GPUs, use ```--gres=gpu:nvidia_a100-sxm4-80gb:1```
+  - You can run ```nvidia-smi``` to confirm you have the resources you requested.
 6. You can now launch your custom singularity containers for your workflows. 
 
-<img width="1295" alt="image" src="https://github.com/user-attachments/assets/9beba567-f365-43dc-92a9-3a4815904ba7" />
+<img width="1288" alt="image" src="https://github.com/user-attachments/assets/f490b305-81c9-47c4-acd7-9d752161ddf7" />
+
+
+
+### SLURM
+
+SLURM is the ideal approach when working on high compute jobs like training of LLMs. You can submit batch jobs. Once enough compute is available, you job will commence and save your results to a specified location. 
+
+1. Open a new terminal/shell
+2. Type in the following ```ssh <VUnetID>@login.accre.vu
+3. Provide your VUnetID password
+4. You now have shell access to the ACCRE file system. ```ls``` will show you that you're currently in your ACCRE home directory. This is currently a CPU-only gateway.
+5. Have your python script ready in your ACCRE home directory. You may upload this using the interactive portal at http://viz.accre.vu
+6. Create your SLURM script. This instructs the scheduler how to run the Python script and what to do with the results. Below is a sample SLURM script:
+
+```
+#!/bin/bash
+#SBATCH --job-name=python_job        # Job name
+#SBATCH --output=python_job_slurm.txt # Output file
+#SBATCH --error=python_job_slurm.txt  # Error file (merged with output)
+#SBATCH --partition=p_dsi_dgx         # Partition to submit to
+#SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1 # Request 1 NVIDIA A100 GPU with 80GB memory
+#SBATCH --time=01:00:00              # Time limit (1 hour)
+
+# Load necessary modules (if any)
+module load python
+
+# Print some information about the GPU used
+nvidia-smi
+
+# Run your Python script
+python your_script.py
+```
+SLURM allows you to specify many parameters related to your job. For more specifics, please see ACCRE's [Wiki](https://help.accre.vanderbilt.edu/index.php?title=Overview). We also highly recommend you complete the [ACCRE SLURM Training](https://www.vanderbilt.edu/accre/required-training/). Their training walks new users through the ACCRE system, UNIX as well as SLURM. 
+
+Please reach out to [Umang Chaudhry](mailto:umang.chaudhry@vanderbilt.edu) with any questions either over email or the Vanderbilt Data Science Slack. 
