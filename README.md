@@ -25,7 +25,7 @@ More information about the ways you can access these machines follow in the [Acc
 
 Before continuing with your setup, you'll need to request to have a DGX account set up for you by completing a [DGX User Account Registration Form (Compute Grant)](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link)
 
-### Accessing the DGXs
+## Accessing the DGXs
 
 Once access is provided, you will be able to access the DGXs in 4 main ways:
    - Jupyter Notebooks
@@ -33,7 +33,7 @@ Once access is provided, you will be able to access the DGXs in 4 main ways:
    - salloc
    - SLURM
   
-#### Jupyter Notebooks 
+### Jupyter Notebooks 
 
 **Note: ACCRE is still working to get this set up. As of 1/22/2025, this solution is not yet available.** 
 
@@ -48,7 +48,7 @@ Jupyter notebooks is the most straightforward way to access the GPUs. However, t
 7. If using a custom virtual environment or container, provide that information under Python or Conda Virtual Environment and Custom Module Collection
 8. Launch the notebook - your job will be initially queued. Depending on the amount of resources you requested, your session will be launched based on availability. Generally, the more resources you ask for, the longer the wait time.
 
-#### ACCRE GPU Desktop
+### ACCRE GPU Desktop
 
 1. Proceed to the *new* ACCRE Visualization Portal at http://viz.accre.vu
 2. Select Interactive Apps
