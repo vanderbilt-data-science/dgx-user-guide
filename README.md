@@ -2,41 +2,61 @@
 
 A guide to all things DGX for authorized users.
 
-The Data Science Institute has four DGX A100's. These systems are not part of the ACCRE share, and user access to them is granted to those who are part of DSI projects, or those who have been awarded a [DSI Compute Grant for DGX](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link). 
+The Data Science Institute has four DGX A100's. These systems have now been incorporated into ACCRE's cluster. Access is still granted to those who are part of DSI projects, or those who have been awarded a [DSI Compute Grant for DGX](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link). 
 
+## Infrastructure
 
-### Steps
+The Data Science Institute has 4 DGX A100s housed under ACCRE. These are available in 2 configurations: 
 
-1. Request an account be created for you on the DSI DGX's. 
+1. 8 x 40GB A100 GPUs (2 Machines, up to 320GB total GPU RAM)
+2. 8 x 80GB A100 GPUs (2 Machines, up to 640GB total GPU RAM)
+
+These machines are set up to work together via InfiniBand for multi-GPU and multi-node High-Performance Computing (HPC). 
+
+Access to the GPUs is provisioned on a first-come first-served basis once you have been granted access. The DGXs are a shared resource amongst DSI Graduate Students, Faculty, Staff and affiliated Faculty members and lab groups. All jobs and access is managed through SLURM, a dynamic job scheduler. During times of high usage, wait times may be longer. Additionally, asking for a large amount of resources for a longer timeframe may also result in longer wait times as SLURM works to free up compute for your jobs. For high compute jobs like training of models, we recommend using a [SLURM](#SLURM) batch job. Once enough compute is available, you job will commence and save your results to a specified location. 
+
+All GPUs are set up such that any work you do is saved to your ACCRE home directory. Upon logging in via any method, you will land in your ACCRE home directory. 
+
+More information about the ways you can access these machines follow in the [Accessing the DGXs](#Accessing-the-DGXs) section.
+
+## Setup
+
+### Request an account be created for you on the DSI DGX's. 
 
 Before continuing with your setup, you'll need to request to have a DGX account set up for you by completing a [DGX User Account Registration Form (Compute Grant)](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link)
 
-2. Once access is provided, get your assigned Port number and GPU information from the [DGX Assignments](https://docs.google.com/spreadsheets/d/1BQjkEN3PJDlljziHQeCBBTwa9unaWivCDnwpmLqmxUQ/edit#gid=0) speadsheet
+### Accessing the DGXs
 
-4. Set up the Vanderbilt VPN on your machine (if not connected to VUnet)
+Once access is provided, you will be able to access the DGXs in 4 main ways:
+   - Jupyter Notebooks
+   - ACCRE GPU Desktop
+   - salloc
+   - SLURM
+  
+#### Jupyter Notebooks 
 
-5. Set up Duo on your mobile device
+**Note: ACCRE is still working to get this set up. As of 1/22/2025, this solution is not yet available.** 
 
-6. Log in to the VPN
+Jupyter notebooks is the most straightforward way to access the GPUs. However, this approach does limit what you can do with the GPUs to only what you can acheive from within a Jupyter Notebook. If you are running custom containers and applications, please see the [salloc](#salloc) method
 
-7. Log in to the DGX (instructions available on the [Running Jupyter Notebooks on the DGX](using-docker-jupyter.md) file)
+1. Proceed to the *new* ACCRE Visualization Portal at http://viz.accre.vu
+2. Select Interactive Apps
+3. Select Jupyter Notebook (GPU)
+4. Provide your GPU Enabled Slurm Account - p_dsi_dgx (*Access to this group is provided via the [Compute Grant](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link) or to those part of DSI projects*)
+5. Provide the number of hours and GPU resources (number of GPUs) you require
+6. Select a GPU Architecture (DGX-A100-40GB or DGX-A100-80GB)
+7. If using a custom virtual environment or container, provide that information under Python or Conda Virtual Environment and Custom Module Collection
+8. Launch the notebook - your job will be initially queued. Depending on the amount of resources you requested, your session will be launched based on availability. Generally, the more resources you ask for, the longer the wait time.
 
-8. Set up and run a Docker container on the DGX
+#### ACCRE GPU Desktop
 
-9. Start your Jupyter Notebook. 
+1. Proceed to the *new* ACCRE Visualization Portal at http://viz.accre.vu
+2. Select Interactive Apps
+3. Select ACCRE GPU Desktop
+4. Provide the number of hours for which you need access (Note: Longer times will likely result in longer wait times)
+5. Provide your GPU Enabled Slurm Account - p_dsi_dgx (*Access to this group is provided via the [Compute Grant](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link) or to those part of DSI projects*)
+6. Provde the number of GPU resources you require
+7. Select a GPU Architecture (DGX-A100-40GB or DGX-A100-80GB)
+8. You may provide a screen resolution if required
+9. Launch the GPU Desktop session - your job will be initially queued. Depending on the amount of resources you requested, your session will be launched based on availability. Generally, the more resources you ask for, the longer the wait time.
 
-**Unlike other systems, try not to close your Jupyter notebook--leave it running. ** You can close the browser window and connect later. The docker container, and your Jupyter kernal, continue on the DGX in a quiescent state. 
-
-## Contents
-
-
-
-* [Running Jupyter Notebooks on the DGX](using-docker-jupyter.md)
-
-## Additional Resources 
-
-* [Generating an SSH Key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-* [Vanderbilt IT Help](https://it.vanderbilt.edu/)
-
-* [Setting up DUO on your phone](https://it.vanderbilt.edu/files/Enrollment_and_Login.pdf)
