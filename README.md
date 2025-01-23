@@ -48,8 +48,6 @@ There are four primary methods to access the DGX systems:
 
 ### Jupyter Notebooks
 
-**Note: ACCRE is working to enable this feature. As of January 22, 2025, it is not yet available.**
-
 Jupyter Notebooks offer a straightforward way to access GPUs, though this method is limited to notebook-based workflows. For custom applications or containers, consider using the `salloc` method.
 
 1. Visit the ACCRE Visualization Portal: [http://viz.accre.vu](http://viz.accre.vu).
