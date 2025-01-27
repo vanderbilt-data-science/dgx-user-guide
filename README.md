@@ -35,7 +35,7 @@ For details on access methods, see [Accessing the DGXs](#accessing-the-dgxs).
 
 ### Requesting an Account
 
-To use the DGX systems, you must request an account by completing the [DGX User Account Registration Form (Compute Grant)](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link).
+To use the DGX systems, you must request an account by completing the [DGX User Account Registration Form (Compute Grant)](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link). If you have recieved an email stating you've been provisioned access, you do not need to complete this form.
 
 ## Accessing the DGXs
 
@@ -50,7 +50,7 @@ There are four primary methods to access the DGX systems:
 
 Jupyter Notebooks offer a straightforward way to access GPUs, though this method is limited to notebook-based workflows. For custom applications or containers, consider using the `salloc` method.
 
-1. Visit the ACCRE Visualization Portal: [http://viz.accre.vu](http://viz.accre.vu).
+1. Visit the ACCRE Visualization Portal: [http://viz.accre.vu](http://viz.accre.vu). Log in with your VUnetID and password.
 2. Select **Interactive Apps**.
 3. Choose **Jupyter Notebook (GPU)**.
 4. Provide your GPU-enabled SLURM account (`p_dsi_dgx`). Access is granted through the [Compute Grant](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link) or via DSI projects.
@@ -64,7 +64,7 @@ Jupyter Notebooks offer a straightforward way to access GPUs, though this method
 
 ACCRE GPU Desktop offers a virtual desktop environment for interactive GPU workflows.
 
-1. Visit the ACCRE Visualization Portal: [http://viz.accre.vu](http://viz.accre.vu).
+1. Visit the ACCRE Visualization Portal: [http://viz.accre.vu](http://viz.accre.vu). Log in with your VUnetID and password.
 2. Select **Interactive Apps**.
 3. Choose **ACCRE GPU Desktop**.
 4. Provide your GPU-enabled SLURM account (`p_dsi_dgx`). Access is granted through the [Compute Grant](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link) or via DSI projects.
