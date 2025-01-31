@@ -96,6 +96,30 @@ The `salloc` method provides direct shell access to the DGX systems and is ideal
 5. Use `nvidia-smi` to verify your resources.
 6. Launch your workflows using Singularity containers.
 
+#### Running Jupyter notebooks via ```salloc```
+
+Running Jupyter notebooks from within a container requires a few extra steps due to the need for port forwarding: 
+
+1. Open a terminal and run:
+   ```bash
+   ssh <VUnetID>@login.accre.vu
+   ```
+2. Enter your VUnetID password.
+3. Navigate your ACCRE home directory using `ls`.
+4. Request a direct shell into the DGX system with the following command:
+   ```bash
+   salloc --time=1:00:00 --partition=interactive --account=p_dsi_dgx --gres=gpu:nvidia_a100-sxm4-40gb:1
+   ```
+5. ** Make note of the machine you landed on (dgx01, dgx02, dgx03, or dgx04)
+6. Navigate to the location of your singularity container
+7. Run the following command: ```singularity exec --bind /home/VUnetID:/home/VUnetID pytorch_25.01-py3.sif jupyter-lab --notebook-dir=/home/VUnetID --ip=0.0.0.0 --no-browser```. This starts a Jupyter Lab session with the workspace bound to your home directory. You can modify this to work off of any directory of your choice. Ensure you have Read, Write and Execute access to this directory.
+8. Open a NEW terminal window. Keep your previous terminal open and running.
+9. Run the following: ssh chaudhu@login.accre.vu -L 8888:<dgx03>:8888 (Replace dgx03 with your machine from step 5)
+10. Now, copy the link provided to you by the Jupyter session running on the first terminal window.
+11. Open a browser and paste the link. CHANGE the "hostname" in the link to "localhost". See example below:
+   Original Link: http://hostname:8888/lab?token=8f89a890e5b48ad3a4e08058f7843f0d76e777cbd158071e
+   New Link: http://localhost:8888/lab?token=8f89a890e5b48ad3a4e08058f7843f0d76e777cbd158071e
+
 <img width="1288" alt="image" src="https://github.com/user-attachments/assets/f490b305-81c9-47c4-acd7-9d752161ddf7" />
 
 ### SLURM
