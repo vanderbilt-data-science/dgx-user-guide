@@ -112,7 +112,7 @@ Running Jupyter notebooks from within a container requires a few extra steps due
    ```
 5. **Make note of the machine you landed on (dgx01, dgx02, dgx03, or dgx04)**
 6. Navigate to the location of your singularity container
-7. Run the following command: ```singularity exec --bind /home/VUnetID:/home/VUnetID pytorch_25.01-py3.sif jupyter-lab --notebook-dir=/home/VUnetID --ip=0.0.0.0 --no-browser```. This starts a Jupyter Lab session with the workspace bound to your home directory. You can modify this to work off of any directory of your choice. Ensure you have Read, Write and Execute access to this directory.
+7. Run the following command: ```singularity exec --nv --bind /home/vuNetID:/home/vuNetID pytorch_25.01-py3.sif jupyter-lab --notebook-dir=/home/vuNetID --ip=0.0.0.0 --no-browser```. This starts a Jupyter Lab session with the workspace bound to your home directory. You can modify this to work off of any directory of your choice. Ensure you have Read, Write and Execute access to this directory.
 8. Open a NEW terminal window. Keep your previous terminal open and running.
 9. Run the following: ```ssh VUnetID@login.accre.vu -L 8888:<dgx03>:8888``` (Replace dgx03 with your machine from step 5)
 10. Now, copy the link provided to you by the Jupyter session running on the first terminal window.
