@@ -110,7 +110,7 @@ Running Jupyter notebooks from within a container requires a few extra steps due
    ```bash
    salloc --time=1:00:00 --partition=interactive --account=p_dsi_dgx --gres=gpu:nvidia_a100-sxm4-40gb:1
    ```
-5. ** Make note of the machine you landed on (dgx01, dgx02, dgx03, or dgx04)
+5. **Make note of the machine you landed on (dgx01, dgx02, dgx03, or dgx04)**
 6. Navigate to the location of your singularity container
 7. Run the following command: ```singularity exec --bind /home/VUnetID:/home/VUnetID pytorch_25.01-py3.sif jupyter-lab --notebook-dir=/home/VUnetID --ip=0.0.0.0 --no-browser```. This starts a Jupyter Lab session with the workspace bound to your home directory. You can modify this to work off of any directory of your choice. Ensure you have Read, Write and Execute access to this directory.
 8. Open a NEW terminal window. Keep your previous terminal open and running.
