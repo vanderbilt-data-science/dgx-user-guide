@@ -96,7 +96,7 @@ The `salloc` method provides direct shell access to the DGX systems and is ideal
 5. Use `nvidia-smi` to verify your resources.
 6. Launch your workflows using Singularity containers.
 
-#### Running Jupyter notebooks via ```salloc```
+### Running Jupyter notebooks via ```salloc```
 
 Running Jupyter notebooks from within a container requires a few extra steps due to the need for port forwarding: 
 
