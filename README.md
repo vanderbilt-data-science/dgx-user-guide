@@ -117,7 +117,7 @@ Running Jupyter notebooks from within a container requires a few extra steps due
 9. Run the following: ssh chaudhu@login.accre.vu -L 8888:<dgx03>:8888 (Replace dgx03 with your machine from step 5)
 10. Now, copy the link provided to you by the Jupyter session running on the first terminal window.
 11. Open a browser and paste the link. CHANGE the "hostname" in the link to "localhost". See example below:
-   Original Link: http://hostname:8888/lab?token=8f89a890e5b48ad3a4e08058f7843f0d76e777cbd158071e
+   Original Link: http://hostname:8888/lab?token=8f89a890e5b48ad3a4e08058f7843f0d76e777cbd158071e  
    New Link: http://localhost:8888/lab?token=8f89a890e5b48ad3a4e08058f7843f0d76e777cbd158071e
 
 <img width="1288" alt="image" src="https://github.com/user-attachments/assets/f490b305-81c9-47c4-acd7-9d752161ddf7" />
