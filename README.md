@@ -135,22 +135,29 @@ SLURM is recommended for high-compute jobs such as model training. Use batch job
 4. Create a SLURM script (e.g., `filename.slurm`) with the following example:
 
    ```bash
-   #!/bin/bash
-   #SBATCH --job-name=python_job        # Job name
-   #SBATCH --output=python_job_slurm.txt # Output file
-   #SBATCH --error=python_job_slurm.txt  # Error file (merged with output)
-   #SBATCH --partition=p_dsi_dgx         # Partition
-   #SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1 # Request 1 GPU
-   #SBATCH --time=01:00:00              # Time limit (1 hour)
+#!/bin/bash
+#SBATCH --job-name=stress_test                # Job name
+#SBATCH --output=stress_test.log        # Standard output log file
+#SBATCH --error=stress_test.log          # Standard error log file
+#SBATCH --partition=interactive         # Partition
+#SBATCH --account=p_dsi_dgx
+#SBATCH --gres=gpu:1 # Request 1 GPU
+#SBATCH --time=3-00:00:00                   # Time limit (hh:mm:ss)
+#SBATCH --nodes=1                         # Number of nodes
+#SBATCH --ntasks=1                        # Number of tasks
+#SBATCH --cpus-per-task=6  
+#SBATCH --mem=80GB                         # Memory per node
 
-   # Load necessary modules
-   module load python
+# Load Singularity module if required by your cluster
+#module load singularity
 
-   # Print GPU info
-   nvidia-smi
+# Define the Singularity container path
+CONTAINER_PATH="/data/p_dsi/singularity-containers/pytorch_25.01-py3.sif"
 
-   # Run your Python script
-   python your_script.py
+#singularity shell $CONTAINER_PATH
+
+# Execute the code using the Singularity container
+singularity exec --nv  $CONTAINER_PATH python /home/vuNetID/stress-test.py
    ```
 
 5. Submit your batch job:
