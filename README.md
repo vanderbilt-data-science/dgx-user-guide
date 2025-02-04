@@ -173,4 +173,4 @@ For additional details, refer to the [ACCRE Wiki](https://help.accre.vanderbilt.
 
 ## Support
 
-For questions, contact [Umang Chaudhry](mailto:umang.chaudhry@vanderbilt.edu) via email or the Vanderbilt Data Science Slack.
+For questions, contact [Umang Chaudhry](mailto:umang.chaudhry@vanderbilt.edu) via email or the Vanderbilt Data Science Slack. If you are able to spin up a session but specifically your code does not work, please put in an ACCRE helpdesk ticket. 
