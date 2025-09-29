@@ -2,7 +2,7 @@
 
 A comprehensive guide to using the DGX A100 systems for authorized users.
 
-The Data Science Institute (DSI) has four DGX A100 systems, now integrated into ACCRE's cluster. Access is provided to participants of DSI projects or those awarded a [DSI Compute Grant for DGX](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link).
+The Data Science Institute (DSI) has four DGX A100 systems, now integrated into ACCRE's cluster. Access is provided to participants of DSI projects or those awarded a [DSI Compute Grant for DGX](https://forms.gle/ESc3DTZ4eMt8K6EP7).
 
 ## Infrastructure
 
@@ -22,7 +22,7 @@ These machines are interconnected via InfiniBand for multi-GPU and multi-node Hi
 ### Data Management
 
 - All work is saved to your ACCRE home directory.
-- Upon logging in, you will start in your ACCRE home directory.
+- Upon logging in, you will start in your ACCRE home directory. If you require additional storage, please reach out to us or ACCRE for a custom solution
 
 ### Containers
 
@@ -35,7 +35,7 @@ For details on access methods, see [Accessing the DGXs](#accessing-the-dgxs).
 
 ### Requesting an Account
 
-To use the DGX systems, you must request an account by completing the [DGX User Account Registration Form (Compute Grant)](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link). If you have recieved an email stating you've been provisioned access, you do not need to complete this form.
+To use the DGX systems, you must request an account by completing the [DSI Compute Grant for DGX](https://forms.gle/ESc3DTZ4eMt8K6EP7). If you have recieved an email stating you've been provisioned access, you do not need to complete this form.
 
 ## Accessing the DGXs
 
@@ -46,17 +46,30 @@ There are four primary methods to access the DGX systems:
 - `salloc`
 - SLURM batch jobs
 
+## Confirming Access
+
+The `slurm_resources` command will show you what resources you can use. Under `Account`, you should see `dsi_dgx` as an option unless you have a different research group that has been provisioned with DGX Access. If you are a DSI student, you should also see `p_dsi`. Please reach out to [Umang Chaudhry](mailto:umang.chaudhry@vanderbilt.edu) if you do not see either of these accounts.
+
+- Scroll to section regarding Accounts and QOS for accessing the interactive GPU partition.
+
+   - You should see `dsi_dgx_iacc` under Accounts and `dgx_iacc` under `QOS`. Make a note of these two values as you will need them request resources.
+     
 ### Jupyter Notebooks
 
 Jupyter Notebooks offer a straightforward way to access GPUs, though this method is limited to notebook-based workflows. For custom applications or containers, consider using the `salloc` method.
 
 1. Visit the ACCRE Visualization Portal: [http://viz.accre.vu](http://viz.accre.vu). Log in with your VUnetID and password.
 2. Select **Interactive Apps**.
-3. Choose **Jupyter Notebook (GPU)**.
-4. Provide your GPU-enabled SLURM account (`p_dsi_dgx`). Access is granted through the [Compute Grant](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link) or via DSI projects.
-5. Specify required resources (hours, GPUs, and architecture: DGX-A100-40GB or DGX-A100-80GB).
-6. If using a custom virtual environment or container, provide the necessary information.
-7. Launch the notebook. Your session will queue and begin based on resource availability.
+3. Choose **ACCRE JupyterLab**.
+4. Provide the duration of your session in hours
+5. Provide your ACCRE SLURM account (`dsi_dgx_iacc`)
+6. Select `interactive_gpu (GPU accelerated nodes, ready on-demand)` as the Partition
+7. Provide your QOS (Quality of Service) designation (`dgx_iacc`)
+8. Optionally provide the memory and number of CPU cores you require. If nothing provided, it will default to the specifications of the GPU you request
+9. Specify required GPU type - `Nvidia A 100-SXM4 (DGX 80 GB)` or `Nvidia A 100-SXM4 (DGX 40 GB)`
+10. Provide the number of GPUs you require
+11. If using a custom virtual environment or container, provide the necessary information under Advanced Options
+12. Launch the session. Your session will queue and begin based on resource availability.
 
 <img width="924" alt="image" src="https://github.com/user-attachments/assets/73aa9fb5-0d37-472f-96b0-e32f04eedcb9" />
 
@@ -67,10 +80,15 @@ ACCRE GPU Desktop offers a virtual desktop environment for interactive GPU workf
 1. Visit the ACCRE Visualization Portal: [http://viz.accre.vu](http://viz.accre.vu). Log in with your VUnetID and password.
 2. Select **Interactive Apps**.
 3. Choose **ACCRE GPU Desktop**.
-4. Provide your GPU-enabled SLURM account (`p_dsi_dgx`). Access is granted through the [Compute Grant](https://docs.google.com/forms/d/e/1FAIpQLScWr3SPiwxeQFQxuesn8R2fDF7k0jOTzFXPNCly-AsEHPh5fw/viewform?usp=sf_link) or via DSI projects.
-5. Specify the session duration, GPU resources, and architecture (DGX-A100-40GB or DGX-A100-80GB).
-6. Optionally, provide a custom screen resolution.
-7. Launch the session. Your session will queue and start based on availability.
+4. Provide the duration of your session in hours
+5. Provide your ACCRE SLURM account (`dsi_dgx_iacc`)
+6. Select `interactive_gpu (GPU accelerated nodes, ready on-demand)` as the Partition
+7. Provide your QOS (Quality of Service) designation (`dgx_iacc`)
+8. Optionally provide the memory and number of CPU cores you require. If nothing provided, it will default to the specifications of the GPU you request
+9. Specify required GPU type - `Nvidia A 100-SXM4 (DGX 80 GB)` or `Nvidia A 100-SXM4 (DGX 40 GB)`
+10. Provide the number of GPUs you require
+11. Optionally, provide a custom screen resolution.
+12. Launch the session. Your session will queue and start based on availability.
 
 <img width="1728" alt="image" src="https://github.com/user-attachments/assets/3aac3a59-99c0-45d6-9970-b96fe89ee7c1" />
 
@@ -86,7 +104,7 @@ The `salloc` method provides direct shell access to the DGX systems and is ideal
 3. Navigate your ACCRE home directory using `ls`.
 4. Request a direct shell into the DGX system with the following command:
    ```bash
-   salloc --time=1:00:00 --partition=interactive --account=p_dsi_dgx --gres=gpu:nvidia_a100-sxm4-40gb:1
+   salloc --time=1:00:00 --partition=interactive_gpu --account=dsi_dgx_iacc --qos=dgx_iacc --gres=gpu:nvidia_a100-sxm4-40gb:1
    ```
    - For 80GB GPUs, use:
      ```bash
@@ -108,7 +126,7 @@ Running Jupyter notebooks from within a container requires a few extra steps due
 3. Navigate your ACCRE home directory using `ls`.
 4. Request a direct shell into the DGX system with the following command:
    ```bash
-   salloc --time=1:00:00 --partition=interactive --account=p_dsi_dgx --gres=gpu:nvidia_a100-sxm4-40gb:1
+   salloc --time=1:00:00 --partition=interactive --account=dsi_dgx_iacc --qos=dgx_iacc --gres=gpu:nvidia_a100-sxm4-40gb:1
    ```
 5. **Make note of the machine you landed on (dgx01, dgx02, dgx03, or dgx04)**
 6. Navigate to the location of your singularity container
@@ -140,7 +158,8 @@ SLURM is recommended for high-compute jobs such as model training. Use batch job
    #SBATCH --output=stress_test.log        # Standard output log file
    #SBATCH --error=stress_test.log          # Standard error log file
    #SBATCH --partition=interactive         # Partition
-   #SBATCH --account=p_dsi_dgx
+   #SBATCH --account=dsi_dgx_iacc
+   #SBATCH --qos=dgx_iacc
    #SBATCH --gres=gpu:1 # Request 1 GPU
    #SBATCH --time=3-00:00:00                   # Time limit (hh:mm:ss)
    #SBATCH --nodes=1                         # Number of nodes
