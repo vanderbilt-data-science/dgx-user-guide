@@ -157,7 +157,7 @@ SLURM is recommended for high-compute jobs such as model training. Use batch job
    #SBATCH --job-name=stress_test                # Job name
    #SBATCH --output=stress_test.log        # Standard output log file
    #SBATCH --error=stress_test.log          # Standard error log file
-   #SBATCH --partition=interactive         # Partition
+   #SBATCH --partition=interactive_gpu        # Partition
    #SBATCH --account=dsi_dgx_iacc
    #SBATCH --qos=dgx_iacc
    #SBATCH --gres=gpu:1 # Request 1 GPU
