@@ -18,6 +18,7 @@ These machines are interconnected via InfiniBand for multi-GPU and multi-node Hi
 - The DGX systems are shared among DSI Graduate Students, Faculty, Staff, and affiliated lab groups.
 - Job and resource management is handled via SLURM, a dynamic job scheduler.
 - High-demand periods or large resource requests may increase wait times.
+- **Please only request the resources you need. Due to high demand, we encourage you to not request long sessions for experimentation - please consider building locally and then implementing your code on ACCRE whenever possible**
 
 ### Data Management
 
